@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Property } from "../../interfaces/Property";
-import PropertyCard from "./components/PropertyCard/PropertyCard";
-import { PropertiesListHeader } from "./components/PropertiesListHeader/PropertiesListHeader";
-import { PropertiesListCount } from "./components/PropertiesListHeader/PropertiesListCount";
+import PropertyCard from "./PropertyCard/PropertyCard";
+import { PropertiesListHeader } from "./PropertiesListHeader/PropertiesListHeader";
+import { PropertiesListCount } from "./PropertiesListHeader/PropertiesListCount";
 
 const StyledPropertiesList = styled.div`
   display: grid;
