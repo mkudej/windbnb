@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
+import HeaderSearcher from "./HeaderSearcher/HeaderSearcher";
+import HeaderSearchInputs from "./HeaderSearchInputs/HeaderSearchInputs";
 
 const StyledHeader = styled.div`
   display: flex;
@@ -10,6 +12,8 @@ const StyledHeader = styled.div`
 const Header = () => (
   <StyledHeader>
     <Logo />
+    <HeaderSearchInputs />
+    <HeaderSearcher />
   </StyledHeader>
 );
 
