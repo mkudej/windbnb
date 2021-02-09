@@ -1,14 +1,8 @@
-import styled from "styled-components";
-import { PropertyCardBadge } from "./PropertyCardBadge/PropertyCardBadge";
-import { PropertyCardRating } from "./PropertyCardRating/PropertyCardRating";
-
-const StyledPropertyCardDetails = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  font-size: 14px;
-  color: #828282;
-`;
+import {
+  PropertyCardBadge,
+  PropertyCardRating,
+  StyledPropertyCardDetails,
+} from "./styles";
 
 interface PropertyCardDetailsProps {
   superHost: boolean;

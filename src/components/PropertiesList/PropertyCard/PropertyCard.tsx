@@ -1,10 +1,6 @@
-import styled from "styled-components";
 import { Property } from "../../../interfaces/Property";
 import { PropertyCardDetails } from "./PropertyCardDetails/PropertyCardDetails";
-import { PropertyCardTitle } from "./PropertyCardTitle/PropertyCardTitle";
-import { PropertyImageCover } from "./PropertyImageCover/PropertyImageCover";
-
-const StyledPropertyCard = styled.div``;
+import { PropertyCardTitle, PropertyImageCover } from "./styles";
 
 interface PropertyCardProps {
   property: Property;
@@ -13,11 +9,11 @@ interface PropertyCardProps {
 const PropertyCard = ({ property }: PropertyCardProps) => {
   const { photo, superHost, type, rating, title } = property;
   return (
-    <StyledPropertyCard>
+    <div>
       <PropertyImageCover src={photo} alt="" />
       <PropertyCardDetails superHost={superHost} type={type} rating={rating} />
       <PropertyCardTitle>{title}</PropertyCardTitle>
-    </StyledPropertyCard>
+    </div>
   );
 };
 
