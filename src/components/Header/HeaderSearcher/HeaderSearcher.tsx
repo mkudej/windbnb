@@ -8,11 +8,15 @@ import {
 } from "./styles";
 import LocationFilter from "./LocationFilter/LocationFilter";
 import GuestsFilter from "./GuestsFilter/GuestsFilter";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import FiltersContext from "../../../context/Filters";
 
 const HeaderSearcher = () => {
-  const [locationVisibility, setLocationVisibility] = useState(false);
-  const [guestsVisibility, setGuestVisibility] = useState(false);
+  const { guests, location } = useContext(FiltersContext);
+  const [locationFilterVisibility, setLocationFilterVisibility] = useState(
+    false
+  );
+  const [guestsFilterVisibility, setGuestFilterVisibility] = useState(false);
 
   return (
     <>
@@ -21,20 +25,22 @@ const HeaderSearcher = () => {
           <StyledHeaderSearchInputs>
             <FilterWrapper
               role="button"
-              onClick={() => setLocationVisibility(!locationVisibility)}
+              onClick={() =>
+                setLocationFilterVisibility(!locationFilterVisibility)
+              }
             >
               <Label>Location</Label>
-              <div>Add Location</div>
-              {locationVisibility && <LocationFilter />}
+              <div>{location ? <>{location}</> : <>Add Location</>}</div>
+              {locationFilterVisibility && <LocationFilter />}
             </FilterWrapper>
 
             <FilterWrapper
               role="button"
-              onClick={() => setGuestVisibility(!guestsVisibility)}
+              onClick={() => setGuestFilterVisibility(!guestsFilterVisibility)}
             >
               <Label>Guests</Label>
-              <div>Add Guests</div>
-              {guestsVisibility && <GuestsFilter />}
+              <div>{guests ? <>{guests} guests</> : <>Add Guests</>}</div>
+              {guestsFilterVisibility && <GuestsFilter />}
             </FilterWrapper>
 
             <SubmitButton>Search</SubmitButton>
