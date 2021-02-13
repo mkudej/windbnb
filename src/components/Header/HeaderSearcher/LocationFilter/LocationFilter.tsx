@@ -21,29 +21,38 @@ const FilterButton = styled.button`
   padding: 0;
 `;
 
-const LocationFilter = () => {
+interface LocationFilterProps {
+  setLocation: any;
+}
+
+const LocationFilter = ({ setLocation }: LocationFilterProps) => {
   const initial = [
     {
-      name: "Helsinki",
+      name: "Helsinki, Finland",
     },
     {
-      name: "Helsinki",
+      name: "Turku, Finland",
     },
     {
-      name: "Helsinki",
+      name: "Oulu, Finland",
     },
     {
-      name: "Helsinki",
+      name: "Vassa, Finland",
     },
   ];
+
+  const selectLocation = (location: string) => {
+    setLocation(location);
+  };
+
   return (
     <>
       <StyledLocationFilter>
         {initial.map(({ name }) => (
           <FilterLi>
-            <FilterButton>
+            <FilterButton onClick={() => selectLocation(name)}>
               <LocationOn style={{ color: "#4F4F4F", marginLeft: "-5px" }} />{" "}
-              {name}, Finland
+              {name}
             </FilterButton>
           </FilterLi>
         ))}

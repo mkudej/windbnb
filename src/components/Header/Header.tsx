@@ -24,7 +24,7 @@ const Header = () => {
       >
         test
       </button>
-      {modalVisibility && <HeaderSearcher />}
+      {modalVisibility && <HeaderSearcher setVisibility={setModalVisibility} />}
     </StyledHeader>
   );
 };

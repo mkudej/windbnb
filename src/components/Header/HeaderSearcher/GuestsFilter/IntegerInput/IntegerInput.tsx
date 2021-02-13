@@ -1,19 +1,23 @@
-import { useState } from "react";
 import { InputWrapper, Button, InputValue } from "./styles";
-
 interface IntegerInputProps {
   max: number;
+  value: number;
+  onChange: any;
 }
 
-const IntegerInput = ({ max }: IntegerInputProps) => {
-  const [value, setValue] = useState(0);
-
+const IntegerInput = ({ max, onChange, value }: IntegerInputProps) => {
   const increase = () => {
-    if (value < max) setValue(value + 1);
+    if (value < max) {
+      value++;
+      onChange(value);
+    }
   };
 
   const decrease = () => {
-    if (value > 0) setValue(value - 1);
+    if (value > 0) {
+      value--;
+      onChange(value);
+    }
   };
 
   return (
