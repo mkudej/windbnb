@@ -8,30 +8,42 @@ import {
 } from "./styles";
 import LocationFilter from "./LocationFilter/LocationFilter";
 import GuestsFilter from "./GuestsFilter/GuestsFilter";
+import { useState } from "react";
 
-const HeaderSearcher = () => (
-  <>
-    <ModalContent>
-      <div className="wrapper">
-        <StyledHeaderSearchInputs>
-          <FilterWrapper>
-            <Label>Location</Label>
-            <div>Add Location</div>
-            <LocationFilter />
-          </FilterWrapper>
+const HeaderSearcher = () => {
+  const [locationVisibility, setLocationVisibility] = useState(false);
+  const [guestsVisibility, setGuestVisibility] = useState(false);
 
-          <FilterWrapper>
-            <Label>Guests</Label>
-            <div>Add Guests</div>
-            <GuestsFilter />
-          </FilterWrapper>
+  return (
+    <>
+      <ModalContent>
+        <div className="wrapper">
+          <StyledHeaderSearchInputs>
+            <FilterWrapper
+              role="button"
+              onClick={() => setLocationVisibility(!locationVisibility)}
+            >
+              <Label>Location</Label>
+              <div>Add Location</div>
+              {locationVisibility && <LocationFilter />}
+            </FilterWrapper>
 
-          <SubmitButton>Search</SubmitButton>
-        </StyledHeaderSearchInputs>
-      </div>
-    </ModalContent>
-    <ModalBackground />
-  </>
-);
+            <FilterWrapper
+              role="button"
+              onClick={() => setGuestVisibility(!guestsVisibility)}
+            >
+              <Label>Guests</Label>
+              <div>Add Guests</div>
+              {guestsVisibility && <GuestsFilter />}
+            </FilterWrapper>
+
+            <SubmitButton>Search</SubmitButton>
+          </StyledHeaderSearchInputs>
+        </div>
+      </ModalContent>
+      <ModalBackground />
+    </>
+  );
+};
 
 export default HeaderSearcher;

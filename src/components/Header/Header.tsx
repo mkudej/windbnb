@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import HeaderSearcher from "./HeaderSearcher/HeaderSearcher";
@@ -9,12 +10,23 @@ const StyledHeader = styled.div`
   padding-top: 35px;
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <Logo />
-    <HeaderSearchInputs />
-    <HeaderSearcher />
-  </StyledHeader>
-);
+const Header = () => {
+  const [modalVisibility, setModalVisibility] = useState(false);
+
+  return (
+    <StyledHeader>
+      <Logo />
+      <HeaderSearchInputs />
+      <button
+        onClick={() => {
+          setModalVisibility(!modalVisibility);
+        }}
+      >
+        test
+      </button>
+      {modalVisibility && <HeaderSearcher />}
+    </StyledHeader>
+  );
+};
 
 export default Header;

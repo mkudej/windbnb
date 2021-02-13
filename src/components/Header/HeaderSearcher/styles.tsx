@@ -24,6 +24,8 @@ export const FilterWrapper = styled.div`
   flex: 1;
   border-right: 1px solid #f2f2f2;
   padding: 0 25px;
+  user-select: none;
+  cursor: pointer;
 `;
 
 export const Label = styled.label`
