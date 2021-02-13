@@ -11,6 +11,8 @@ import GuestsFilter from "./GuestsFilter/GuestsFilter";
 import { useContext, useState } from "react";
 import FiltersContext from "../../../context/Filters";
 import { Guests } from "../../../interfaces/Guests";
+import GuestsTextValue from "./GuestsTextValue/GuestsTextValue";
+import LocationTextValue from "./LocationTextValue/LocationTextValue";
 
 interface HeaderSearcherProps {
   setVisibility: any;
@@ -45,7 +47,7 @@ const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {
               onClick={() => setLocationVisibility(!locationVisibility)}
             >
               <Label>Location</Label>
-              <div>{location ? <>{location}</> : <>Add Location</>}</div>
+              <LocationTextValue value={location} />
               {locationVisibility && (
                 <LocationFilter setLocation={setLocation} />
               )}
@@ -56,9 +58,7 @@ const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {
               onClick={() => setGuestVisibility(!guestsVisibility)}
             >
               <Label>Guests</Label>
-              <div>
-                {guests.total ? <>{guests.total} guests</> : <>Add Guests</>}
-              </div>
+              <GuestsTextValue value={guests.total} />
               {/* {guestsVisibility && <GuestsFilter setGuests={setGuests} />} */}
               <GuestsFilter guests={guests} setGuests={setGuests} />
             </FilterWrapper>
