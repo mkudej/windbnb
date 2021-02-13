@@ -13,7 +13,7 @@ function App() {
     children: 0,
     total: 0,
   });
-  const [location, setLocation] = useState("Helsinki, Finland");
+  const [location, setLocation] = useState("");
 
   useEffect(() => {
     fetchProperties().then((data) => setProperties(data));
