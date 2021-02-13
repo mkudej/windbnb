@@ -19,6 +19,13 @@ export const ModalBackground = styled.div`
   right: 0;
 `;
 
+export const FilterWrapper = styled.div`
+  position: relative;
+  flex: 1;
+  border-right: 1px solid #f2f2f2;
+  padding: 0 25px;
+`;
+
 export const Label = styled.label`
   display: block;
   font-size: 9px;
