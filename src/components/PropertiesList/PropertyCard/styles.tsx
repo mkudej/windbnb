@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
+const PropertyImageWrapper = styled.div`
+  display: block;
+  min-height: 267px;
+  margin-bottom: 15px;
+`;
+
 const PropertyImageCover = styled.img`
   display: block;
   max-width: 100%;
   height: auto;
-  margin-bottom: 15px;
   border-radius: 24px;
 `;
 
@@ -15,4 +20,4 @@ const PropertyCardTitle = styled.p`
   margin: 12px 0 0 0;
 `;
 
-export { PropertyImageCover, PropertyCardTitle };
+export { PropertyImageCover, PropertyCardTitle, PropertyImageWrapper };

@@ -1,6 +1,10 @@
 import { Property } from "../../../interfaces/Property";
 import { PropertyCardDetails } from "./PropertyCardDetails/PropertyCardDetails";
-import { PropertyCardTitle, PropertyImageCover } from "./styles";
+import {
+  PropertyCardTitle,
+  PropertyImageCover,
+  PropertyImageWrapper,
+} from "./styles";
 
 interface PropertyCardProps {
   property: Property;
@@ -10,7 +14,10 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   const { photo, superHost, type, rating, title } = property;
   return (
     <div>
-      <PropertyImageCover src={photo} alt="" />
+      <PropertyImageWrapper>
+        <PropertyImageCover src={photo} alt="" />
+      </PropertyImageWrapper>
+
       <PropertyCardDetails superHost={superHost} type={type} rating={rating} />
       <PropertyCardTitle>{title}</PropertyCardTitle>
     </div>
