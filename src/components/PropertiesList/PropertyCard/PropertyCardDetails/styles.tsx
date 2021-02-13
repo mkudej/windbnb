@@ -6,6 +6,7 @@ const StyledPropertyCardDetails = styled.div`
   font-weight: 500;
   font-size: 14px;
   color: #828282;
+  min-height: 28px;
 `;
 
 const PropertyCardBadge = styled.div`
