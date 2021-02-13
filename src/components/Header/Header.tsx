@@ -5,7 +5,7 @@ import HeaderSearchInputs from "./HeaderSearchInputs/HeaderSearchInputs";
 
 const StyledHeader = styled.div`
   display: flex;
-  flex-align: center;
+  align-items: center;
   padding-top: 35px;
 `;
 

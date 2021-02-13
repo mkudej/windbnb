@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`  
-  *{
+  *, *:before, *:after{
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .wrapper {
@@ -14,6 +15,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     font-size: 14px;
+  }
+
+  button {
+    cursor: pointer;
+    outline: none;
+    border: none;
   }
 `;
 
