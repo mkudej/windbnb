@@ -3,6 +3,7 @@ import LocationOn from "@material-ui/icons/LocationOn";
 
 const StyledLocationFilter = styled.ul`
   position: absolute;
+  top: 42px;
   list-style-type: none;
   margin: 0;
   padding: 0;

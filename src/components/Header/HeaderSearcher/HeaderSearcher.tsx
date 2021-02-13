@@ -5,6 +5,7 @@ import styled from "styled-components";
 import GuestsFilter from "./GuestsFilter/GuestsFilter";
 
 const FilterWrapper = styled.div`
+  position: relative;
   flex: 1;
   border-right: 1px solid #f2f2f2;
   padding: 0 25px;
