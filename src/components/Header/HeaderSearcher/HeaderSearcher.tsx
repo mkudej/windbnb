@@ -10,13 +10,30 @@ import LocationFilter from "./LocationFilter/LocationFilter";
 import GuestsFilter from "./GuestsFilter/GuestsFilter";
 import { useContext, useState } from "react";
 import FiltersContext from "../../../context/Filters";
+import { Guests } from "../../../interfaces/Guests";
 
-const HeaderSearcher = () => {
-  const { guests, location } = useContext(FiltersContext);
-  const [locationFilterVisibility, setLocationFilterVisibility] = useState(
-    false
-  );
-  const [guestsFilterVisibility, setGuestFilterVisibility] = useState(false);
+interface HeaderSearcherProps {
+  setVisibility: any;
+}
+
+const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {
+  const context = useContext(FiltersContext);
+
+  const [locationVisibility, setLocationVisibility] = useState(false);
+  const [guestsVisibility, setGuestVisibility] = useState(false);
+
+  const [location, setLocation] = useState(context.location);
+  const [guests, setGuests] = useState<Guests>({
+    adults: context.guests.adults,
+    children: context.guests.children,
+    total: context.guests.total,
+  });
+
+  const submitSearch = () => {
+    context.setGuests(guests);
+    context.setLocation(location);
+    setVisibility(false);
+  };
 
   return (
     <>
@@ -25,25 +42,28 @@ const HeaderSearcher = () => {
           <StyledHeaderSearchInputs>
             <FilterWrapper
               role="button"
-              onClick={() =>
-                setLocationFilterVisibility(!locationFilterVisibility)
-              }
+              onClick={() => setLocationVisibility(!locationVisibility)}
             >
               <Label>Location</Label>
               <div>{location ? <>{location}</> : <>Add Location</>}</div>
-              {locationFilterVisibility && <LocationFilter />}
+              {locationVisibility && (
+                <LocationFilter setLocation={setLocation} />
+              )}
             </FilterWrapper>
 
             <FilterWrapper
               role="button"
-              onClick={() => setGuestFilterVisibility(!guestsFilterVisibility)}
+              onClick={() => setGuestVisibility(!guestsVisibility)}
             >
               <Label>Guests</Label>
-              <div>{guests ? <>{guests} guests</> : <>Add Guests</>}</div>
-              {guestsFilterVisibility && <GuestsFilter />}
+              <div>
+                {guests.total ? <>{guests.total} guests</> : <>Add Guests</>}
+              </div>
+              {/* {guestsVisibility && <GuestsFilter setGuests={setGuests} />} */}
+              <GuestsFilter guests={guests} setGuests={setGuests} />
             </FilterWrapper>
 
-            <SubmitButton>Search</SubmitButton>
+            <SubmitButton onClick={submitSearch}>Search</SubmitButton>
           </StyledHeaderSearchInputs>
         </div>
       </ModalContent>
