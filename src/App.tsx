@@ -5,6 +5,7 @@ import { fetchProperties } from "./services/properties-data.service";
 import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import FiltersContext from "./context/Filters";
+import { PropertyLocation } from "./interfaces/PropertyLocation";
 
 function App() {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -13,7 +14,10 @@ function App() {
     children: 0,
     total: 0,
   });
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState<PropertyLocation>({
+    city: "",
+    country: "",
+  });
 
   useEffect(() => {
     fetchProperties().then((data) => setProperties(data));
@@ -25,7 +29,11 @@ function App() {
     >
       <div className="wrapper">
         <Header />
-        <PropertiesList properties={properties} />
+        <PropertiesList
+          guests={guests}
+          location={location}
+          properties={properties}
+        />
       </div>
     </FiltersContext.Provider>
   );

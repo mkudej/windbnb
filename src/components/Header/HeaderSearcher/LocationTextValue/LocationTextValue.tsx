@@ -1,10 +1,16 @@
+import { PropertyLocation } from "../../../../interfaces/PropertyLocation";
+
 interface LocationTextValueProps {
-  value: string;
+  location: PropertyLocation;
 }
 
-const LocationTextValue = ({ value }: LocationTextValueProps) => {
-  if (value) {
-    return <div>{value}</div>;
+const LocationTextValue = ({ location }: LocationTextValueProps) => {
+  if (location.city.length) {
+    return (
+      <div>
+        {location.city} {location.country}
+      </div>
+    );
   }
 
   return <div>Add Location</div>;

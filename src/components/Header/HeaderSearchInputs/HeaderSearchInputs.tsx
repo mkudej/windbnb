@@ -10,7 +10,7 @@ const HeaderSearchInputs = () => {
   return (
     <StyledHeaderSearchInputs>
       <StyledHeaderSearchButton>
-        <LocationTextValue value={location} />
+        <LocationTextValue location={location} />
       </StyledHeaderSearchButton>
       <StyledHeaderSearchButton>
         <GuestsTextValue value={guests.total} />

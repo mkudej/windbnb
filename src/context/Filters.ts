@@ -7,7 +7,10 @@ const FiltersContext = createContext<Filters>({
     children: 0,
     total: 0,
   },
-  location: "",
+  location: {
+    city: "",
+    country: "",
+  },
 });
 
 export default FiltersContext;

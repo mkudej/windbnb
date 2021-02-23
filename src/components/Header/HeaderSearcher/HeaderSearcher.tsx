@@ -13,6 +13,7 @@ import FiltersContext from "../../../context/Filters";
 import { Guests } from "../../../interfaces/Guests";
 import GuestsTextValue from "./GuestsTextValue/GuestsTextValue";
 import LocationTextValue from "./LocationTextValue/LocationTextValue";
+import { PropertyLocation } from "../../../interfaces/PropertyLocation";
 
 interface HeaderSearcherProps {
   setVisibility: any;
@@ -24,7 +25,7 @@ const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {
   const [locationVisibility, setLocationVisibility] = useState(false);
   const [guestsVisibility, setGuestVisibility] = useState(false);
 
-  const [location, setLocation] = useState(context.location);
+  const [location, setLocation] = useState<PropertyLocation>(context.location);
   const [guests, setGuests] = useState<Guests>({
     adults: context.guests.adults,
     children: context.guests.children,
@@ -47,7 +48,7 @@ const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {
               onClick={() => setLocationVisibility(!locationVisibility)}
             >
               <Label>Location</Label>
-              <LocationTextValue value={location} />
+              <LocationTextValue location={location} />
               {locationVisibility && (
                 <LocationFilter setLocation={setLocation} />
               )}

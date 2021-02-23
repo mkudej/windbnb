@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import LocationOn from "@material-ui/icons/LocationOn";
+import { PropertyLocation } from "../../../../interfaces/PropertyLocation";
 
 const StyledLocationFilter = styled.ul`
   position: absolute;
@@ -28,31 +29,35 @@ interface LocationFilterProps {
 const LocationFilter = ({ setLocation }: LocationFilterProps) => {
   const initial = [
     {
-      name: "Helsinki, Finland",
+      city: "Helsinki",
+      country: "Finland",
     },
     {
-      name: "Turku, Finland",
+      city: "Turku",
+      country: "Finland",
     },
     {
-      name: "Oulu, Finland",
+      city: "Oulu",
+      country: "Finland",
     },
     {
-      name: "Vassa, Finland",
+      city: "Vassa",
+      country: "Finland",
     },
   ];
 
-  const selectLocation = (location: string) => {
+  const selectLocation = (location: PropertyLocation) => {
     setLocation(location);
   };
 
   return (
     <>
       <StyledLocationFilter>
-        {initial.map(({ name }) => (
+        {initial.map(({ city, country }) => (
           <FilterLi>
-            <FilterButton onClick={() => selectLocation(name)}>
+            <FilterButton onClick={() => selectLocation({ city, country })}>
               <LocationOn style={{ color: "#4F4F4F", marginLeft: "-5px" }} />{" "}
-              {name}
+              {city}, {country}
             </FilterButton>
           </FilterLi>
         ))}
