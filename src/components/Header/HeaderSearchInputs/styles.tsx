@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledHeaderSearchInputs = styled.div`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   background: #ffffff;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;

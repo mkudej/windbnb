@@ -25,9 +25,13 @@ const FilterButton = styled.button`
 
 interface LocationFilterProps {
   setLocation: Dispatch<SetStateAction<PropertyLocation>>;
+  setLocationVisibility: Dispatch<SetStateAction<boolean>>;
 }
 
-const LocationFilter = ({ setLocation }: LocationFilterProps) => {
+const LocationFilter = ({
+  setLocation,
+  setLocationVisibility,
+}: LocationFilterProps) => {
   const initial = [
     {
       city: "Helsinki",
@@ -49,21 +53,20 @@ const LocationFilter = ({ setLocation }: LocationFilterProps) => {
 
   const selectLocation = (location: PropertyLocation) => {
     setLocation(location);
+    setLocationVisibility(false);
   };
 
   return (
-    <>
-      <StyledLocationFilter>
-        {initial.map(({ city, country }) => (
-          <FilterLi>
-            <FilterButton onClick={() => selectLocation({ city, country })}>
-              <LocationOn style={{ color: "#4F4F4F", marginLeft: "-5px" }} />{" "}
-              {city}, {country}
-            </FilterButton>
-          </FilterLi>
-        ))}
-      </StyledLocationFilter>
-    </>
+    <StyledLocationFilter>
+      {initial.map(({ city, country }) => (
+        <FilterLi key={city}>
+          <FilterButton onClick={() => selectLocation({ city, country })}>
+            <LocationOn style={{ color: "#4F4F4F", marginLeft: "-5px" }} />
+            {city}, {country}
+          </FilterButton>
+        </FilterLi>
+      ))}
+    </StyledLocationFilter>
   );
 };
 export default LocationFilter;

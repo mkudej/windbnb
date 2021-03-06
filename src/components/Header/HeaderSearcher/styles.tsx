@@ -20,12 +20,23 @@ export const ModalBackground = styled.div`
 `;
 
 export const FilterWrapper = styled.div`
+  display: flex;
   position: relative;
   flex: 1;
   border-right: 1px solid #f2f2f2;
   padding: 0 25px;
   user-select: none;
   cursor: pointer;
+`;
+
+export const FilterButton = styled.button`
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 `;
 
 export const Label = styled.label`
@@ -43,4 +54,12 @@ export const SubmitButton = styled.button`
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   margin: 0 130px;
+`;
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
 `;
