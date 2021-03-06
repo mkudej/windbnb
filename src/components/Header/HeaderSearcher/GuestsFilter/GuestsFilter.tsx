@@ -1,10 +1,11 @@
+import { Dispatch, SetStateAction } from "react";
 import { Guests } from "../../../../interfaces/Guests";
 import IntegerInput from "./IntegerInput/IntegerInput";
 import { FilterWrapper, StyledGuestsFilter } from "./styles";
 
 interface GuestsFilterProps {
   guests: Guests;
-  setGuests: any;
+  setGuests: Dispatch<SetStateAction<Guests>>;
 }
 
 const GuestsFilter = ({ guests, setGuests }: GuestsFilterProps) => {

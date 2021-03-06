@@ -2,7 +2,7 @@ import { InputWrapper, Button, InputValue } from "./styles";
 interface IntegerInputProps {
   max: number;
   value: number;
-  onChange: any;
+  onChange: (value: number) => void;
 }
 
 const IntegerInput = ({ max, onChange, value }: IntegerInputProps) => {

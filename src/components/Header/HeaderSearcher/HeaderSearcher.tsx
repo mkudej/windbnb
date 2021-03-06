@@ -8,7 +8,7 @@ import {
 } from "./styles";
 import LocationFilter from "./LocationFilter/LocationFilter";
 import GuestsFilter from "./GuestsFilter/GuestsFilter";
-import { useContext, useState } from "react";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 import FiltersContext from "../../../context/Filters";
 import { Guests } from "../../../interfaces/Guests";
 import GuestsTextValue from "./GuestsTextValue/GuestsTextValue";
@@ -16,7 +16,7 @@ import LocationTextValue from "./LocationTextValue/LocationTextValue";
 import { PropertyLocation } from "../../../interfaces/PropertyLocation";
 
 interface HeaderSearcherProps {
-  setVisibility: any;
+  setVisibility: Dispatch<SetStateAction<boolean>>;
 }
 
 const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {

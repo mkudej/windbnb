@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import LocationOn from "@material-ui/icons/LocationOn";
 import { PropertyLocation } from "../../../../interfaces/PropertyLocation";
+import { Dispatch, SetStateAction } from "react";
 
 const StyledLocationFilter = styled.ul`
   position: absolute;
@@ -23,7 +24,7 @@ const FilterButton = styled.button`
 `;
 
 interface LocationFilterProps {
-  setLocation: any;
+  setLocation: Dispatch<SetStateAction<PropertyLocation>>;
 }
 
 const LocationFilter = ({ setLocation }: LocationFilterProps) => {
