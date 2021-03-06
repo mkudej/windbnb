@@ -16,14 +16,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <Logo />
-      <HeaderSearchInputs />
-      <button
-        onClick={() => {
-          setModalVisibility(!modalVisibility);
-        }}
-      >
-        test
-      </button>
+      <HeaderSearchInputs setModalVisibility={setModalVisibility} />
       {modalVisibility && <HeaderSearcher setVisibility={setModalVisibility} />}
     </StyledHeader>
   );

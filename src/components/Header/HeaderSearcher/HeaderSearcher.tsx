@@ -60,7 +60,6 @@ const HeaderSearcher = ({ setVisibility }: HeaderSearcherProps) => {
             >
               <Label>Guests</Label>
               <GuestsTextValue value={guests.total} />
-              {/* {guestsVisibility && <GuestsFilter setGuests={setGuests} />} */}
               <GuestsFilter guests={guests} setGuests={setGuests} />
             </FilterWrapper>
 
