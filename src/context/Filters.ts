@@ -11,6 +11,8 @@ const FiltersContext = createContext<Filters>({
     city: "",
     country: "",
   },
+  setGuests: () => {},
+  setLocation: () => {},
 });
 
 export default FiltersContext;
